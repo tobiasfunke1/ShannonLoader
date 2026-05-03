@@ -94,7 +94,7 @@ def force_create_string(fapi, addr, max_len):
         data = list(fapi.getBytes(addr, max_len))
         strlen = data.index(0)
         fapi.clearListing(addr, addr.add(strlen))
-    except ghidra.program.model.mem.MemoryAccessException as e:
+    except MemoryAccessException as e:
         print("ERROR: force_create_string failed: %s" % str(e))
         return None
 
